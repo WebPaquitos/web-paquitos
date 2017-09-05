@@ -5,10 +5,7 @@ This boilerplate uses the latest versions of the technologies listed below as of
 ### Technologies used
 
 - `react v15.6.1`
-- `redux v3.7.1`
-- `react-redux v5.0.5`
 - `react-router-dom v4.1.1`
-- `redux-thunk v2.2.0`
 - `axios v0.16.2`
 - `react-icons v2.2.5`
 - `bootstrap v4.0.0-beta`
