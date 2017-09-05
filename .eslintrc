@@ -14,7 +14,10 @@
         "es6": true
     },
     "rules": {
+        "import/prefer-default-export": "off",
+        "no-confusing-arrow": 0,
         "react/prefer-stateless-function": "off",
+        "react/jsx-no-bind": "off",
         "react/jsx-filename-extension": [
             1,
             {
@@ -62,5 +65,8 @@
             "always"
         ],
         "no-console": "off"
-    }
+    },
+    "plugins": [
+        "styled-components-config"
+    ]
 }
