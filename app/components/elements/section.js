@@ -5,15 +5,14 @@ const StyledSection = styled.section`
     position: relative;
     width: 100vw;
     height: 100vh;
-    background-image: ${({ bgImage }) => {
-        return `url(${bgImage})` || 'none';
+    background: ${({ bgImage }) => {
+        return `url(${bgImage}) no-repeat` || 'none';
     }};
-    background-repeat: no-repeat;
     background-size: cover;
     background-attachment: ${({ bgFixed }) => bgFixed ? 'fixed' : 'inherit'};
 `;
 
-export const Section = ({ children, bgImage = undefined, bgFixed = false }) => {
+export const Section = ({ children, bgImage, bgFixed = false }) => {
     return (
         <StyledSection
             bgImage={bgImage}

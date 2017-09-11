@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import { darken } from 'polished';
 import { Loader } from './loader';
-import { LIGHT_TEXT, LIGHT_BG, getColorByCategory } from './variables';
+import { LIGHT_TEXT, getColorByCategory } from './variables';
 
 const StyledButton = styled.button`
     display: flex;
@@ -12,12 +12,10 @@ const StyledButton = styled.button`
     min-width: 100px;
     width: fit-content;
     transition: all .2s;
-    border-style: solid;
-    border-width: 1px;
-    border-color: ${({ btn }) => getColorByCategory(btn)};
+    border: ${({ btn }) => `1px solid ${getColorByCategory(btn)}`};
     border-radius: 5px;
     background-color: ${({ outline, btn }) => {
-        if (outline) return LIGHT_BG;
+        if (outline) return 'transparent';
         return getColorByCategory(btn);
     }};
     color: ${({ outline, btn }) => {
@@ -26,14 +24,14 @@ const StyledButton = styled.button`
     }};
     &:hover {
         background-color: ${({ outline, btn }) => {
-            if (outline) return LIGHT_BG;
+            if (outline) return 'transparent';
             return darken(0.05, getColorByCategory(btn));
         }};
         color: ${({ outline, btn }) => {
             if (outline) return darken(0.05, getColorByCategory(btn));
             return LIGHT_TEXT;
         }};
-        border-color: ${({ btn }) => darken(0.05, getColorByCategory(btn))};
+        border: ${({ btn }) => `1px solid ${darken(0.05, getColorByCategory(btn))}`};
     }
     &:focus {
         outline: none;
