@@ -4,12 +4,13 @@ import { darken } from 'polished';
 import { Loader } from './loader';
 import { LIGHT_TEXT, LIGHT_BG, getColorByCategory } from './variables';
 
-const ButtonStyled = styled.button`
+const StyledButton = styled.button`
     display: flex;
     padding: 5px 10px;
     justify-content: center;
     align-items: center;
     min-width: 100px;
+    width: fit-content;
     transition: all .2s;
     border-style: solid;
     border-width: 1px;
@@ -41,11 +42,11 @@ const ButtonStyled = styled.button`
 
 export const Button = ({ children, btn, outline = false, onClick, loading }) => {
     return (
-        <ButtonStyled
+        <StyledButton
             btn={btn}
             outline={outline}
             onClick={onClick}>
             {loading ? <Loader type={btn} outline={outline}/> : children}
-        </ButtonStyled>
+        </StyledButton>
     );
 };

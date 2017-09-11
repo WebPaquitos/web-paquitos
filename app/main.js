@@ -18,7 +18,7 @@ const render = (Component) => {
                 </Switch>
             </Router>
         </AppContainer>
-        , document.querySelector('.container'),
+        , document.querySelector('#root'),
     );
 };
 
