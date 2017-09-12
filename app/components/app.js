@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 import BgImg from '../assets/img/bg.jpg';
-import { Button, Link, Section, Container, Row, Col, Title } from './elements';
+import { Button, Section, Container, Row, Col, Title } from './elements';
 
 export default class App extends Component {
     state = { loading: false };
@@ -22,6 +23,7 @@ export default class App extends Component {
                             <Col>
                                 <h1 className="title">React Redux Boilerplate</h1>
                                 <p className="body">It works! :o</p>
+                                <Link to="/test">Go to test</Link>
                                 <Button
                                     btn="primary"
                                     loading={this.state.loading}
@@ -29,6 +31,7 @@ export default class App extends Component {
                                     Click me
                                 </Button>
                                 <Link
+                                    to="/"
                                     type="secondary"
                                     onClick={() => console.log('link clicked')}>
                                     Some link
@@ -49,6 +52,7 @@ export default class App extends Component {
                                     Click me
                                 </Button>
                                 <Link
+                                    to="/"
                                     type="secondary"
                                     onClick={() => console.log('link clicked')}>
                                     Some link

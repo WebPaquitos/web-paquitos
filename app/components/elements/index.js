@@ -1,6 +1,7 @@
 export * from './variables';
 export * from './section';
 export * from './container';
+export * from './transition';
 export * from './row';
 export * from './col';
 export * from './button';

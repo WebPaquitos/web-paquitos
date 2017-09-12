@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import { AppContainer } from 'react-hot-loader';
 import App from './components/app';
+import Test from './components/test';
 
 const render = (Component) => {
     ReactDOM.render(
@@ -10,6 +11,7 @@ const render = (Component) => {
             <Router>
                 <Switch>
                     <Route exact path="/" component={Component}/>
+                    <Route path="/test" component={Test}/>
                     {
                         /* add other routes here to guarantee
                     only one component is rendered at a time */

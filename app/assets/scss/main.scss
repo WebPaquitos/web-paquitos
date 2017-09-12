@@ -1,1 +1,27 @@
 @import "~bootstrap/dist/css/bootstrap.css";
+
+.fade-appear {
+    opacity: 0.01;
+    transform: translate(0, 100%);
+    &.fade-appear-active {
+        opacity: 1;
+        transform: translate(0, 0);
+        transition: all .5s ease-out;
+    }
+}
+
+.fade-enter {
+    opacity: 0.01;
+    &.fade-enter-active {
+        opacity: 1;
+        transition: opacity 500ms ease-in;
+    }
+}
+
+.fade-leave {
+    opacity: 1;
+    &.fade-leave-active {
+        opacity: 0.01;
+        transition: opacity 300ms ease-in;
+    }
+}
