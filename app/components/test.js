@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
 import BgImg from '../assets/img/bg.jpg';
-import { Section, Container, Row, Col, Transition } from './elements';
+import { Section, Container, Row, Col, Transition, Link } from './elements';
 
 class Test extends Component {
     constructor(props) {
@@ -24,11 +23,13 @@ class Test extends Component {
     }
 
     render() {
-        const items = this.state.items.map((item, i) => (
-            <div key={item} onClick={() => this.handleRemove(i)}>
-                {item}
-            </div>
-        ));
+        const items = this.state.items.map((item, i) => {
+            return (
+                <div key={item} onClick={() => this.handleRemove(i)}>
+                    {item}
+                </div>
+            );
+        });
 
         return (
             <div>
@@ -38,7 +39,7 @@ class Test extends Component {
                             <Row>
                                 <Col>
                                     <button onClick={this.handleAdd}>Add Item</button>
-                                    <Link to="/">Go to home</Link>
+                                    <Link to="/" type="primary">Go to home</Link>
                                 </Col>
                             </Row>
                             <Row>

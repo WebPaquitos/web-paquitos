@@ -1,9 +1,10 @@
 import React from 'react';
 import styled from 'styled-components';
 import { darken } from 'polished';
+import { Link as RouterLink } from 'react-router-dom';
 import { getColorByCategory } from './variables';
 
-const StyledLink = styled.a`
+const StyledLink = styled(RouterLink)`
     display: flex;
     position: relative;
     padding: 5px 10px;
@@ -25,6 +26,7 @@ const StyledLink = styled.a`
         background-color: ${({ type }) => getColorByCategory(type)} !important;
     }
     &:hover {
+        text-decoration: none;
         color: ${({ type }) => darken(0.05, getColorByCategory(type))} !important;
         &:after {
             background-color: ${({ type }) => darken(0.05, getColorByCategory(type))} !important;
@@ -33,11 +35,11 @@ const StyledLink = styled.a`
     &:focus { outline: none; }
 `;
 
-export const Link = ({ children, type, onClick }) => {
+export const Link = ({ children, type, to }) => {
     return (
         <StyledLink
-            type={type}
-            onClick={onClick}>
+            to={to}
+            type={type}>
             {children}
         </StyledLink>
     );

@@ -4,7 +4,7 @@ import styled from 'styled-components';
 const StyledSection = styled.section`
     position: relative;
     width: 100vw;
-    height: 100vh;
+    min-height: 100vh;
     background: ${({ bgImage }) => {
         return `url(${bgImage}) no-repeat` || 'none';
     }};
@@ -12,9 +12,14 @@ const StyledSection = styled.section`
     background-attachment: ${({ bgFixed }) => bgFixed ? 'fixed' : 'inherit'};
 `;
 
-export const Section = ({ children, bgImage, bgFixed = false }) => {
+export const Sections = ({ children }) => {
+    return <div className="sections">{children}</div>;
+};
+
+export const Section = ({ id, children, bgImage, bgFixed = false }) => {
     return (
         <StyledSection
+            id={id}
             bgImage={bgImage}
             bgFixed={bgFixed}>
             {children}

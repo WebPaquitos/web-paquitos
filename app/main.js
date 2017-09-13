@@ -12,10 +12,6 @@ const render = (Component) => {
                 <Switch>
                     <Route exact path="/" component={Component}/>
                     <Route path="/test" component={Test}/>
-                    {
-                        /* add other routes here to guarantee
-                    only one component is rendered at a time */
-                    }
                 </Switch>
             </Router>
         </AppContainer>
