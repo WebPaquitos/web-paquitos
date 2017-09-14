@@ -91,6 +91,23 @@ export default class App extends Component {
                         </Row>
                     </Container>
                 </Section>
+                <Section bgImage={Bg1Img}>
+                    <Container>
+                        <Row>
+                            <Col>
+                                <Title type="feature">Welcome to this site!</Title>
+                                <p className="body">It works! :o</p>
+                                <Link to="/test" type="secondary">Go to test</Link>
+                                <Button
+                                    btn="primary"
+                                    loading={loading}
+                                    onClick={this.onButtonClick}>
+                                    Click me
+                                </Button>
+                            </Col>
+                        </Row>
+                    </Container>
+                </Section>
             </Sections>
         );
     }
