@@ -35,11 +35,13 @@ const StyledLink = styled(RouterLink)`
     &:focus { outline: none; }
 `;
 
-export const Link = ({ children, type, to }) => {
+export const Link = ({ children, type, to, className, unstyled = false }) => {
+    if (unstyled) return <RouterLink to={to} className={className}>{children}</RouterLink>;
     return (
         <StyledLink
             to={to}
-            type={type}>
+            type={type}
+            className={className}>
             {children}
         </StyledLink>
     );

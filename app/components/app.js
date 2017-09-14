@@ -1,26 +1,25 @@
 import React, { Component } from 'react';
-import Scrollspy from 'react-scrollspy';
-import BgImg from '../assets/img/bg.jpg';
+import Waypoint from 'react-waypoint';
+import Bg1Img from '../assets/img/bg1.jpg';
+import Bg2Img from '../assets/img/bg2.jpg';
 import {
     Button, Sections,
     Section, Container,
-    Row, Col, Title, Link,
-    Transition,
+    Row, Col, Title, Link, Navbar,
 } from './elements';
 
 export default class App extends Component {
     constructor(props) {
         super(props);
         this.onButtonClick = this.onButtonClick.bind(this);
-        this.onScrollCheckpoint = this.onScrollCheckpoint.bind(this);
+        this.onScrollCheckpointNav = this.onScrollCheckpointNav.bind(this);
+        this.toggleNavbarState = this.toggleNavbarState.bind(this);
     }
 
     state = {
         loading: false,
-        scrollPoint1: {
-            flag: false,
-            touched: false,
-        },
+        navbarOpen: false,
+        shadowOnNavbar: false,
     };
 
     onButtonClick() {
@@ -31,36 +30,37 @@ export default class App extends Component {
         }, 1000);
     }
 
-    onScrollCheckpoint(el) {
-        if (el) {
-            this.setState((prevState) => {
-                if (!prevState[el.id].flag) {
-                    return {
-                        [el.id]: {
-                            flag: !prevState[el.id].flag,
-                            touched: true,
-                        },
-                    };
-                }
-                return prevState;
-            });
-        }
+    onScrollCheckpointNav(waypoint) {
+        if (waypoint.previousPosition === 'inside') this.setState({ shadowOnNavbar: false });
+        else this.setState({ shadowOnNavbar: true });
+    }
+
+    toggleNavbarState() {
+        this.setState({ navbarOpen: !this.state.navbarOpen });
     }
 
     render() {
-        const { scrollPoint1: { flag, touched } } = this.state;
+        const {
+            navbarOpen,
+            shadowOnNavbar,
+            loading,
+        } = this.state;
         return (
             <Sections>
-                <Section bgImage={BgImg}>
+                <Navbar
+                    navbarOpen={navbarOpen}
+                    shadowOnNavbar={shadowOnNavbar}
+                    onMenuClick={this.toggleNavbarState}/>
+                <Section bgImage={Bg1Img}>
                     <Container>
                         <Row>
                             <Col>
-                                <h1 className="title">React Redux Boilerplate</h1>
+                                <Title type="feature">Welcome to this site!</Title>
                                 <p className="body">It works! :o</p>
                                 <Link to="/test" type="secondary">Go to test</Link>
                                 <Button
                                     btn="primary"
-                                    loading={this.state.loading}
+                                    loading={loading}
                                     onClick={this.onButtonClick}>
                                     Click me
                                 </Button>
@@ -68,34 +68,25 @@ export default class App extends Component {
                         </Row>
                     </Container>
                 </Section>
-                <Section id="scrollPoint1" bgImage={BgImg} bgFixed>
+                <Section bgImage={Bg2Img} bgFixed>
+                    <Waypoint
+                        onLeave={this.onScrollCheckpointNav}
+                        onEnter={this.onScrollCheckpointNav}/>
                     <Container>
                         <Row>
                             <Col>
                                 <Title type="feature">Cenas man!</Title>
                                 <Button
                                     btn="secondary"
-                                    loading={this.state.loading}
+                                    loading={loading}
                                     onClick={this.onButtonClick}
                                     outline>
                                     Click me
                                 </Button>
-                                <Scrollspy
-                                    items={['scrollPoint1']}
-                                    onUpdate={this.onScrollCheckpoint}
-                                    componentTag="span">
-                                    <Transition
-                                        transitionName="fade-in"
-                                        transitionAppearTimeout={1000}
-                                        transitionEnterTimeout={1000}
-                                        transitionLeaveTimeout={1000}>
-                                        {flag && touched && (<Link
-                                            to="/">
-                                            Some link
-                                        </Link>)
-                                        }
-                                    </Transition>
-                                </Scrollspy>
+                                <Link
+                                    to="/">
+                                    Some link
+                                </Link>
                             </Col>
                         </Row>
                     </Container>

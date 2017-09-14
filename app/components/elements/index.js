@@ -8,3 +8,4 @@ export * from './button';
 export * from './link';
 export * from './title';
 export * from './loader';
+export * from './navbar';

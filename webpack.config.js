@@ -91,6 +91,12 @@ const config = {
                 },
             },
         }),
+        new webpack.ProvidePlugin({
+            $: 'jquery',
+            jQuery: 'jquery',
+            'window.jQuery': 'jquery',
+            Popper: ['popper.js', 'default'],
+        }),
         new webpack.optimize.ModuleConcatenationPlugin(),
         new ExtractTextPlugin({ filename: 'style.css', disable: false, allChunks: true }),
         new HtmlWebpackPlugin({
