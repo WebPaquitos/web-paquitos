@@ -30,9 +30,10 @@ export default class App extends Component {
         }, 1000);
     }
 
-    onScrollCheckpointNav(waypoint) {
-        if (waypoint.previousPosition === 'inside') this.setState({ shadowOnNavbar: false });
-        else this.setState({ shadowOnNavbar: true });
+    onScrollCheckpointNav({ previousPosition, currentPosition }) {
+        if (previousPosition === 'inside' && currentPosition !== 'above') {
+            this.setState({ shadowOnNavbar: false });
+        } else this.setState({ shadowOnNavbar: true });
     }
 
     toggleNavbarState() {

@@ -5,7 +5,7 @@ const StyledSection = styled.section`
     position: relative;
     width: 100vw;
     min-height: 100vh;
-    padding-top: 110px;
+    padding-top: 130px;
     background-color: ${({ bgColor }) => bgColor || '#fff'};
     background: ${({ bgImage }) => {
         return bgImage ? `linear-gradient(rgba(0,0,0,.5), rgba(0,0,0,.5)), url(${bgImage}) no-repeat` : '';

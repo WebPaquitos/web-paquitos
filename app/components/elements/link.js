@@ -4,6 +4,14 @@ import { darken } from 'polished';
 import { Link as RouterLink } from 'react-router-dom';
 import { getColorByCategory } from './variables';
 
+const StyledSimpleLink = styled(RouterLink)`
+    &:hover {
+        text-decoration: none;
+        color: ${({ type }) => darken(0.3, getColorByCategory(type))} !important;
+    }
+    &:focus { outline: none; }
+`;
+
 const StyledLink = styled(RouterLink)`
     display: flex;
     position: relative;
@@ -36,7 +44,7 @@ const StyledLink = styled(RouterLink)`
 `;
 
 export const Link = ({ children, type, to, className, unstyled = false }) => {
-    if (unstyled) return <RouterLink to={to} className={className}>{children}</RouterLink>;
+    if (unstyled) return <StyledSimpleLink to={to} className={className}>{children}</StyledSimpleLink>;
     return (
         <StyledLink
             to={to}

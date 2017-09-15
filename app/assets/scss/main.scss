@@ -1,6 +1,13 @@
 @import "~bootstrap/dist/css/bootstrap.css";
 @import "~hamburgers/_sass/hamburgers/hamburgers.scss";
 
+.logo {
+    height: 120px;
+    width: auto;
+    transition: all .5s;
+    &.true { height: 60px; }
+}
+
 .fade-in {
     opacity: 0.01;
     transform: translate(0, 100%);
