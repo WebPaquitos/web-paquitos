@@ -12,6 +12,13 @@ const StyledNavbar = styled.div`
         transition: all .5s;
         color: ${({ shadowOnNavbar }) => shadowOnNavbar ? 'inherit' : '#fff !important'}
     }
+    .navbar-brand {
+        img {
+            height: ${({ shadowOnNavbar }) => shadowOnNavbar ? '60px' : '120px'};
+            width: auto;
+            transition: all .5s;
+        }
+    }
 `;
 
 export const Navbar = ({ navbarOpen, onMenuClick, shadowOnNavbar }) => {
@@ -22,7 +29,7 @@ export const Navbar = ({ navbarOpen, onMenuClick, shadowOnNavbar }) => {
             className="navbar navbar-expand-md fixed-top"
             shadowOnNavbar={shadowOnNavbar}>
             <Link to="/" className="navbar-brand" unstyled>
-                <img src={LogoImg} className={`d-inline-block align-top logo ${shadowOnNavbar}`} alt=""/>
+                <img src={LogoImg} className="d-inline-block align-top" alt="logo web paquitos"/>
             </Link>
             <button
                 className={`navbar-toggler hamburger hamburger--collapse ${activeClass}`}
